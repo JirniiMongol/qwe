@@ -13,8 +13,8 @@ app.get('/', function (req, res) {
 app.get('/auth', function (req, res) {
 
     console.log('get /auth');
-    var login = req.query.login;
-    var pass = req.query.password;
+    var login = new String(req.query.login);
+    var pass = new String(req.query.password);
 
     //res.send(login + ' ' + pass);
 
