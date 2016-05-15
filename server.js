@@ -1,16 +1,15 @@
-// берём Express
-var express = require('express');
+const express = require('express')  
+const app = express()  
 
-// создаём Express-приложение
-var app = express();
+app.get('/', (request, response) => {
+  
+  response.sendfile('index.html')
+})
 
-// создаём маршрут для главной страницы
+app.listen(port, (err) => {  
+  if (err) {
+    return console.log('something bad happened', err)
+  }
 
-app.get('/', function(req, res) {
-  res.sendfile('index.html');
-});
-
-// запускаем сервер на порту 8080
-app.listen(8080);
-// отправляем сообщение
-console.log('Сервер стартовал!');
+  console.log(`server is listening on ${port}`)
+})
