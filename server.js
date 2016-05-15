@@ -6,24 +6,17 @@ var app = express();
 var port = process.env.PORT || 5000;
 
 app.get('/', function (req, res) {
+    console.log('get /');
     res.sendfile('index.html');
-
-    /*    pg.connect(connString, function (err, client, done) {
-     if (err) res.send("Could not connect to DB: " + err);
-     client.query('SELECT * FROM MyTable', function (err, result) {
-     done();
-     if (err) return res.send(err);
-     res.send(result.rows);
-     });
-     });*/
 });
 
 app.get('/auth', function (req, res) {
 
+    console.log('get /auth');
     var login = req.query.login;
     var pass = req.query.password;
 
-    //res.end(login + ' ' + pass);
+    //res.send(login + ' ' + pass);
 
     pg.connect(connString, function (err, client, done) {
         if (err) res.send("Could not connect to DB: " + err);
@@ -34,8 +27,6 @@ app.get('/auth', function (req, res) {
             res.send(result.rows);
         });
     });
-
-    res.end("ok");
 });
 
 

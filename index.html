@@ -16,7 +16,7 @@
 
 <p class="lead">Authorization with NodeJs and PostgreSQL</p>
 
-<form id="auth" onsubmit="sub()" class="form-group" style="width: 250px">
+<form id="auth" action="auth" class="form-group" style="width: 250px">
     <div class="form-group">
         <label for="usr">Name:</label>
         <input type="text" name="login" class="form-control" id="usr">
@@ -30,25 +30,5 @@
     </div>
 </form>
 
-<script>
-
-    function sub() {
-        var xhr = new XMLHTTPRequest();
-
-        xhr.open("GET", "/auth", true);
-        xhr.send(JSON.stringify(
-                {
-                    login: this.elements.login.value,
-                    password: this.elements.password.value
-                }
-        ));
-
-        this.elements.login.value = '';
-        this.elements.password.value = '';
-
-        return false;
-    }
-
-</script>
 </body>
 </html>
