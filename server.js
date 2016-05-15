@@ -16,7 +16,7 @@ app.get('/auth', function (req, res) {
     var login = req.query.login;
     var pass = req.query.password;
 
-    res.send(login + ' ' + pass);
+    //res.send(login + ' ' + pass);
 
     pg.connect(connString, function (err, client, done) {
         if (err) res.send("Could not connect to DB: " + err);
