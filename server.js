@@ -13,19 +13,19 @@ app.get('/', function (req, res) {
 app.get('/auth', function (req, res) {
 
     console.log('get /auth');
-    var login = new String(req.query.login);
-    var pass = new String(req.query.password);
+    var login = req.query.login.toString();
+    var pass = req.query.password.toString();
 
     //res.send(login + ' ' + pass);
 
     pg.connect(connString, function (err, client, done) {
         if (err) res.send("Could not connect to DB: " + err);
-        client.query('SELECT * FROM Accounts WHERE login = $1 AND password = $2', [login, pass],
+        client.query('SELECT COUNT(login) FROM Accounts WHERE login = $1 AND password = $2', [login, pass],
             function (err, result) {
                 done();
                 if (err) return res.send(err);
                 console.log(result.rows);
-                if (result.rows[0] == 1)
+                if (result.rows[0].count == '1')
                     res.send('Success');
                 else
                     res.send('Failed');
