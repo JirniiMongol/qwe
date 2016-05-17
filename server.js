@@ -1,4 +1,4 @@
-var connString = 'postgres://aokfxrxipljadk:H1sGlA1o88iWCfZFvaLZeeJ1Sk@ec2-23-21-238-76.compute-1.amazonaws.com:5432/d781h39ucu0rs2';
+var connString = 'postgres://wnqeqpyghmfrmc:Ph3wdJrPoZh4Wcv70q0EvKaC5Q@ec2-174-129-212-133.compute-1.amazonaws.com:5432/d4etrpot5alp12';
 
 var pg = require('pg');
 var express = require('express');
